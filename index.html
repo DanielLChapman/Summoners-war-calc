@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+      <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
+    <link href="main.css" rel="stylesheet" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+  </head>
+  <body ng-app="myApp">
+    <div class="header">
+      <div class="container">
+        <h1>Summoners War 6* Calculator</h1>
+      </div>
+    </div>
+
+    <div class="main" ng-controller="MainController">
+      <div class="container col-md-10 col-md-offset-1">
+
+        <h1>{{title }}</h1>
+        <h3>Check if yes, otherwise uncheck</h3><input type="checkbox" ng-model="checkboxModel.value2"
+           ng-true-value="'YES'" ng-false-value="'NO'"><span style="color: #6B78B4">{{checkboxModel.value2}}</span>
+        <br />
+          <label>
+             Two Stars Currently level 1: &nbsp;&nbsp; 
+             <input type="number" name="twoStars" ng-model="haveTwoStars[0]" required>
+              Two Stars Currently level 20:&nbsp;&nbsp;&nbsp;
+             <input type="number" name="twoStars" ng-model="haveTwoStars[1]" required>
+          </label>
+        <label>
+             Three Stars Currently level 1:
+             <input type="number" name="threeStars" ng-model="haveThreeStars[0]" required>
+              Three Stars Currently level 25:
+             <input type="number" name="threeStars" ng-model="haveThreeStars[1]" required>
+          </label>
+        <label>
+             Four Stars Currently level 1:&nbsp;&nbsp;
+             <input type="number" name="fourStars" ng-model="haveFourStars[0]" required>
+              Four Stars Currently level 30:&nbsp;&nbsp;
+             <input type="number" name="fourStars" ng-model="haveFourStars[1]" required>
+          </label>
+        <label>
+             Five Stars Currently level 1:&nbsp;&nbsp;&nbsp;
+             <input type="number" name="fiveStars" ng-model="haveFiveStars[0]" required>
+              Five Stars Currently level 35:&nbsp;&nbsp;&nbsp;
+             <input type="number" name="fiveStars" ng-model="haveFiveStars[1]" required>
+          </label>
+      <br />
+      <h3>You need {{ needed[3] }} more 5 stars to make a 6* monster</h3>
+        <h5>You need to level {{ fiveStars[1] }} more five stars to max level</h5>
+      <h3>You need {{ needed[2] }} more 4 stars to make enough 5 stars</h3>
+        <h5>You need to level {{ needed[3]-haveFourStars[1] }} more four stars to max level</h5>
+      <h3>You need {{ needed[1] }} more 3 stars to make enough 4 stars</h3>
+        <h5>You need to level {{ needed[2]-haveThreeStars[1] }} more three stars to max level</h5>
+      <h3>You need {{ needed[0] }} more 2 stars to make enough 3 stars</h3>
+        <h5>You need to level {{ needed[1]-haveTwoStars[1] }} more two starsto max level</h5>
+        
+        <label>
+             Farming Speed in seconds:&nbsp;&nbsp;&nbsp;
+             <input type="number" name="fiveStars" ng-model="speed" required>
+              XP per monster (3900 faimon, 4 monsters, double xp):&nbsp;&nbsp;&nbsp;
+             <input type="number" name="fiveStars" ng-model="xp" required>
+          </label>
+        
+        <h4>It will take you {{timeNeeded | number:2}} hours to make a 6*</h4>
+        <h6>This isnt 100% accurate. Doesnt factor in menu time, if you have less than 3 4*s you have to level, then it will be slightly faster</h6>
+      </div>
+      
+      
+    </div>
+
+    <div class="footer">
+    </div>
+
+
+    <!-- Modules -->
+    <script src="app.js"></script>
+
+    <!-- Controllers -->
+    <script src="MainController.js"></script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+label {
+  float: left;
+  clear: left;
+}
+
+label:after {
+  clear: left;
+}
+
+h3 {
+  float: left;
+  width: 100%;
+}
+h3:after {
+  content: "";
+  clear: left;
+}
+h5, h4, h6 {
+  float: left;
+  color: #F5FAFA
+}
+h4 {
+  width: 100%;
+}
+input {
+  width: 50px;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  border:1px solid white;
+  background: #242E35;
+}
+h1, h2, h3, h4 {
+  color: #00CCCC;
+  text-shadow: 0 0 5px #000;
+}
+.main {
+  width: 100%;
+  height: 100%;
+  background: #242E35;
+}
+.main .container {
+  border:1px solid white;
+}
+
+label {
+  color: #6B78B4;
+}
