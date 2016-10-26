@@ -42,9 +42,10 @@ app.controller('MainController', ['$scope', function($scope) {
   //Initial Calculations
   var test = ['haveFiveStars[0]', 'haveFiveStars[1]', 'haveFourStars[1]', 'haveFourStars[0]', 'haveThreeStars[0]', 'haveThreeStars[1]', 'haveTwoStars[1]', 'haveTwoStars[0]', 'speed', 'xp'];
   $scope.$watchGroup(['haveFiveStars[0]', 'haveFiveStars[1]', 'haveFourStars[1]', 'haveFourStars[0]', 'haveThreeStars[0]', 'haveThreeStars[1]', 'haveTwoStars[1]', 'haveTwoStars[0]', 'speed', 'xp'], function(newValues, scope) {
-    for (var i = 0; i < newValues.length; i++) {
-
+    /*for (var i = 0; i < newValues.length; i++) {
     }
+    *Old purpose, legacy code left incase it needs to be revived. 
+    */
     $scope.calculate();
 
   });
@@ -101,10 +102,12 @@ app.controller('MainController', ['$scope', function($scope) {
           $scope.needed[0] -= $scope.haveTwoStars[0];
         }
         else {
+          //If there is enough 3 stars, clear out the 2 stars
           $scope.needed[0] = 0;
         }
       }
       else {
+        //If there is enough 4 stars, then clear out the 3 and 2 stars
         $scope.needed[0] = 0;
         $scope.needed[1] = 0;
       }
