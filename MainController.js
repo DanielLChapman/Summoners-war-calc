@@ -40,11 +40,10 @@ app.controller('MainController', ['$scope', function($scope) {
     $scope.calculate();
   });
   //Initial Calculations
+  var test = ['haveFiveStars[0]', 'haveFiveStars[1]', 'haveFourStars[1]', 'haveFourStars[0]', 'haveThreeStars[0]', 'haveThreeStars[1]', 'haveTwoStars[1]', 'haveTwoStars[0]', 'speed', 'xp'];
   $scope.$watchGroup(['haveFiveStars[0]', 'haveFiveStars[1]', 'haveFourStars[1]', 'haveFourStars[0]', 'haveThreeStars[0]', 'haveThreeStars[1]', 'haveTwoStars[1]', 'haveTwoStars[0]', 'speed', 'xp'], function(newValues, scope) {
     for (var i = 0; i < newValues.length; i++) {
-      if (newValues[i] < 0) {
-        newValues[i] = 0;
-      }
+
     }
     $scope.calculate();
 
@@ -70,7 +69,6 @@ app.controller('MainController', ['$scope', function($scope) {
         //We need needed[3] amount of 5 stars, which will be needed[3] + needed[3] * 4; Temp is how many more 4 stars need to be leveled. Temp + haveFourStars should never be greater then 5. 
         $scope.needed[2] = $scope.temp + $scope.temp * 4 + $scope.haveFourStars[1] * 4;
       }
-
       //So now we know how many 4 stars we needed, lets subtract how many unleveled we have.
       $scope.needed[2] -= $scope.haveFourStars[0];
       //if this number is less then 1, then we can stop. 
@@ -125,13 +123,9 @@ app.controller('MainController', ['$scope', function($scope) {
     *Load that into the time needed.
     */
     var totalXp = parseFloat(($scope.needed[1]-$scope.haveTwoStars[1])*35822+($scope.needed[2]-$scope.haveThreeStars[1])*82182+($scope.needed[3]-$scope.haveFourStars[1])*189750+$scope.fiveStars[1]*446647);
-    console.log(totalXp);
     var totalXp = parseFloat(totalXp/3);
-    console.log(totalXp);
     var totalXp = parseFloat(totalXp/$scope.xp);
-    console.log(totalXp);
     var totalXp = parseFloat(totalXp*$scope.speed);
-    console.log(totalXp);
     $scope.timeNeeded = parseFloat(totalXp/60);
     $scope.timeNeeded = parseFloat($scope.timeNeeded/60);
   }
