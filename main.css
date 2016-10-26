@@ -78,7 +78,7 @@
     }
     .fa-arrow-left {
       position: relative;
-      font-size: 32px;
+      font-size: 32px !important;
       left: -185px;
       top: 60px;
       -ms-transform: rotate(-37deg); /* IE 9 */
